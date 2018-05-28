@@ -452,10 +452,7 @@ color="0,0,0" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas
       
         
           
-            <h1 id="Git-常用命令大全"><a href="#Git-常用命令大全" class="headerlink" title="Git 常用命令大全"></a>Git 常用命令大全</h1><h3 id="git-初步运行配置"><a href="#git-初步运行配置" class="headerlink" title="git 初步运行配置"></a>git 初步运行配置</h3><ol>
-<li>git config –global user.name “John Doe”</li>
-<li>git config –global user.email <a href="mailto:johndoe@example.com" target="_blank" rel="noopener">johndoe@example.com</a></li>
-</ol>
+            <h2 id="Git-常用命令大全"><a href="#Git-常用命令大全" class="headerlink" title="Git 常用命令大全"></a>Git 常用命令大全</h2><h3 id="git-初步运行配置"><a href="#git-初步运行配置" class="headerlink" title="git 初步运行配置"></a>git 初步运行配置</h3><p>git config –global user.name “John Doe”<br>git config –global user.email <a href="mailto:johndoe@example.com" target="_blank" rel="noopener">johndoe@example.com</a></p>
 <h3 id="git-查看配置信息"><a href="#git-查看配置信息" class="headerlink" title="git 查看配置信息"></a>git 查看配置信息</h3><p>git congfig –list</p>
 <h3 id="初始化仓库"><a href="#初始化仓库" class="headerlink" title="初始化仓库"></a>初始化仓库</h3><p>git init</p>
 <h3 id="添加跟踪文件"><a href="#添加跟踪文件" class="headerlink" title="添加跟踪文件"></a>添加跟踪文件</h3><p>git add</p>
@@ -464,22 +461,27 @@ color="0,0,0" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas
 <h3 id="克隆现有仓库"><a href="#克隆现有仓库" class="headerlink" title="克隆现有仓库"></a>克隆现有仓库</h3><p>git clone  url</p>
 <h3 id="查看文件状态"><a href="#查看文件状态" class="headerlink" title="查看文件状态"></a>查看文件状态</h3><p>git status<br>git status -s  （状态简览）</p>
 <h3 id="写忽略文件"><a href="#写忽略文件" class="headerlink" title="写忽略文件"></a>写忽略文件</h3><p>cat .gitignore</p>
-<ul>
-<li>.[oa]</li>
-</ul>
+<p>* .[oa]</p>
 <h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><p>git rm  文件</p>
 <p>git rm -r 文件夹</p>
-<h3 id="git-diff"><a href="#git-diff" class="headerlink" title="git diff"></a>git diff</h3><ol>
-<li>git diff 比较的是工作区和暂存区的差别</li>
-<li>git diff –cached 比较的是暂存区和版本库的差别</li>
-<li>git diff HEAD 可以查看工作区和版本库的差别</li>
-</ol>
+<h3 id="git-diff"><a href="#git-diff" class="headerlink" title="git diff"></a>git diff</h3><p>git diff 比较的是工作区和暂存区的差别</p>
+<p>git diff –cached 比较的是暂存区和版本库的差别</p>
+<p>git diff HEAD 可以查看工作区和版本库的差别</p>
 <h3 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h3><p>git log</p>
 <p>git log -p （显示每次提交的差异）</p>
 <p>git log –stat （查看提交统计信息）</p>
 <h3 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h3><p>git commit –amend</p>
 <p>git reset HEAD 文件</p>
-<p><img src="/keeps.github.io/images/5.jpg" alt=""></p>
+<p>git checkout  文件  慎用</p>
+<h3 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h3><p>git remote -v  (显示远程仓库)</p>
+<p>git remote show origin</p>
+<h3 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h3><p>git remote add  shortname <url></url></p>
+<h3 id="移除远程仓库"><a href="#移除远程仓库" class="headerlink" title="移除远程仓库"></a>移除远程仓库</h3><p>git remote rename old new</p>
+<p>git remote rm name</p>
+<h3 id="git-打标签"><a href="#git-打标签" class="headerlink" title="git 打标签"></a>git 打标签</h3><p>git tag</p>
+<p>git tag -l “”</p>
+<h3 id="查看标签和对应信息"><a href="#查看标签和对应信息" class="headerlink" title="查看标签和对应信息"></a>查看标签和对应信息</h3><p>git show 标签</p>
+<h3 id="检出标签"><a href="#检出标签" class="headerlink" title="检出标签"></a>检出标签</h3><p>git checkout -b [branchname] [tagname]<br><img src="/keeps.github.io/images/5.jpg" alt=""></p>
 
           
         
