@@ -1201,7 +1201,7 @@ pre .javascript .function {
 }
 .menu .menu-item a {
   display: block;
-  font-size: 13px;
+  font-size: 16px;
   line-height: inherit;
   border-bottom: 1px solid transparent;
   transition-property: border-color;
@@ -1213,7 +1213,7 @@ pre .javascript .function {
   border-bottom-color: #222;
 }
 .menu .menu-item .fa {
-  margin-right: 5px;
+  margin-right: 10px;
 }
 .use-motion .menu-item {
   opacity: 0;
@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c6d2a2;
+  background: #30fff6;
 }
 .links-of-blogroll {
   font-size: 13px;
