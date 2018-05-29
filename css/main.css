@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #2929ad;
+  background: #2a9929;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2905,7 +2905,7 @@ hr {
   }
 }
 body {
-  background: url("/keeps.github.io/images/4.jpg");
+  background: url("/keepingoner.github.io/images/4.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 100% 100%;
