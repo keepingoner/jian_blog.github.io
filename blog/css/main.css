@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ebe717;
+  background: #c21a4b;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2903,16 +2903,4 @@ hr {
     width: auto;
     text-align: center;
   }
-}
-body {
-  background: url("/keepingoner.github.io/blog/images/123.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 100% 100%;
-  background-size: 100% 100%;
-  background-index: 3;
-}
-.main-inner {
-  padding: 50px 100px 100px 100px;
-  opacity: 0.8;
 }
