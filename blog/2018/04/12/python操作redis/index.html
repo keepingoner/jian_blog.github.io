@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+
+
+<script type="text/javascript"
+color="0,0,0" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="#1 安装 下载python中MongoDB的驱动程序 pip install pymongo #2 连接 from pymongo import MongoClient  conn = MongoClient(&amp;apos;host&amp;apos;, port) db = conn.mydb  #连接mydb数据库，没有则自动创建 my_set = db.test_set　　#使用test_set集合">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python操作mongodb">
+<meta property="og:url" content="https://keepingoner.github.io./blog/2018/04/12/python操作redis/index.html">
+<meta property="og:site_name" content="Jian China">
+<meta property="og:description" content="#1 安装 下载python中MongoDB的驱动程序 pip install pymongo #2 连接 from pymongo import MongoClient  conn = MongoClient(&amp;apos;host&amp;apos;, port) db = conn.mydb  #连接mydb数据库，没有则自动创建 my_set = db.test_set　　#使用test_set集合">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-14T03:03:04.142Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python操作mongodb">
+<meta name="twitter:description" content="#1 安装 下载python中MongoDB的驱动程序 pip install pymongo #2 连接 from pymongo import MongoClient  conn = MongoClient(&amp;apos;host&amp;apos;, port) db = conn.mydb  #连接mydb数据库，没有则自动创建 my_set = db.test_set　　#使用test_set集合">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"remove","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://keepingoner.github.io./blog/2018/04/12/python操作redis/"/>
+
+
+
+
+
+  <title>python操作mongodb | Jian China</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <div style="position: absolute; top: 33px; right: 34%; border: 0; z-index:9999;">
+    <a href="https://jianchina.top" style="text-decoration:none;">首页</a>
+    </div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jian China</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-文章">
+          <a href="/blog/" rel="section">
+            
+            文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/blog/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-记录">
+          <a href="/blog/archives" rel="section">
+            
+            记录
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://keepingoner.github.io./blog/blog/2018/04/12/python操作redis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jian China">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python操作mongodb</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T18:16:58+08:00">
+                2018-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>#1 安装</p>
+<p>下载python中MongoDB的驱动程序</p>
+<pre><code>pip install pymongo
+</code></pre><p>#2 连接</p>
+<pre><code>from pymongo import MongoClient
+
+conn = MongoClient(&apos;host&apos;, port)
+db = conn.mydb  #连接mydb数据库，没有则自动创建
+my_set = db.test_set　　#使用test_set集合，没有则自动创建
+</code></pre><p>如在项目中，建议配置 config 文件 host port  从config 文件导入  便于修改</p>
+<p>#3 编写连接函数</p>
+<hr>
+<p>class SqlConn(object):</p>
+<pre><code>def __init__(self, host, port):
+    self.host = host
+    self.port = port
+
+def mongo_conn(self):
+    try:
+        db_conn_mongo = pymongo.MongoClient(host=self.host, port=self.port)
+    except Exception as e:
+        print &quot;MongoDB连接失败,e&quot; % e
+    else:
+        # print  id(db_conn_mongo), &apos;mongo&apos;
+        return db_conn_mongo
+
+def mysql_conn(self):
+    try:
+        from config.conf import Config
+        db_conn_mysql = MySQLdb.connect(host=self.host, port=self.port, user=Config.MYSQL_TB_USER,
+                                        passwd=Config.MYSQL_PASSWD,
+                                        db=Config.MYSQL_DB, charset=Config.MYSQL_CHARSET)
+    except Exception as e:
+        print &quot;MySql数据库连接失败 ,e&quot; % e
+    finally:
+        # print id(db_conn_mysql), &apos;mysql&apos;
+
+        # print db_conn_mysql
+        return db_conn_mysql
+</code></pre><hr>
+<p>#4 创建实例对象</p>
+<h3 id="连接…的对象"><a href="#连接…的对象" class="headerlink" title="连接…的对象"></a>连接…的对象</h3><p>db_core_conn = SqlConn(HOST, PORT)<br>mongo_core_conn = db_core_conn.mongo_conn()<br>DB_数据库A = mongo_core_conn.get_database(MONGO_DB_NAME)</p>
+<h3 id="连接-…的对象"><a href="#连接-…的对象" class="headerlink" title="连接 …的对象"></a>连接 …的对象</h3><p>db_astock_conn = SqlConn(Config.MONGO_ASTOCK_DAY_HOST, Config.MONGO_ASTOCK_DAYE_PORT)<br>mongo_astock_conn = db_astock_conn.mongo_conn()<br>DB_数据库B = mongo_astock_conn.get_database(MONGO_DB_NAME)</p>
+<p>#5 使用创建的实例对象</p>
+<p>from … import  DB_数据库A, DB_数据库B</p>
+<p>tb_表A = DB_数据库A.get_collection(表name)</p>
+<ol>
+<li>插入数据（insert插入一个列表多条数据不用遍历，效率高， save需要遍历列表，一个个插入）</li>
+</ol>
+<p>tb_表A.insert({“name”:”zhangsan”,”age”:18})</p>
+<ol start="2">
+<li>插入多条</li>
+</ol>
+<p>tb_表A.insert({“name”:”zhangsan”,”age”:18},{“name”:”lisi”,”age”:20})</p>
+<ol start="3">
+<li>查询数据（查询不到则返回None）</li>
+</ol>
+<p>查询全部</p>
+<p>for i in tb_表A.find():</p>
+<p>查询name=zhangsan的</p>
+<p>tb_表A.find_one({“name”:”zhangsan”}))</p>
+<ol start="4">
+<li>更改 把上面插入的数据内的age改为20</li>
+</ol>
+<p>tb_表A.update({“name”:”zhangsan”},{‘$set’:{“age”:20}})</p>
+<ol start="5">
+<li>删除</li>
+</ol>
+<p>删除name=zhangsan的全部记录</p>
+<p>tb_表A.remove({‘name’: ‘zhangsan’}）</p>
+<ol start="6">
+<li>条件操作符<br>##<br> (&gt;)  大于 - $gt<br> (&lt;)  小于 - $lt<br> (&gt;=)  大于等于 - $gte<br> (&lt;= )  小于等于 - $lte</li>
+</ol>
+<p>##<br>eg：</p>
+<p>for i in tb_表A.find({“age”:{“$gt”:25}}):<br>    print(i)</p>
+<ol start="7">
+<li>排序</li>
+</ol>
+<p>在MongoDB中使用sort()方法对数据进行排序</p>
+<p>sort()方法可以通过参数指定排序的字段，并使用 1 和 -1 来指定排序的方式，其中 1 为升序，-1为降序。</p>
+<p>eg：</p>
+<p>for i in my_set.find().sort([(“age”,1)]):</p>
+<ol start="8">
+<li>limit和skip 可用于分页</li>
+</ol>
+<p>limit()方法用来读取指定数量的数据</p>
+<p>skip()方法用来跳过指定数量的数据</p>
+<p>下面表示跳过两条数据后读取6条</p>
+<p>for i in tb_表A.find().skip(2).limit(6):</p>
+<ol start="9">
+<li>in or  all</li>
+</ol>
+<p>找出age是20、30、35的数据</p>
+<p>for i in  tb_表A.find({“age”:{“$in”:(20,30,35)}}):</p>
+<p>找出age是20或35的记录</p>
+<p>for i in  tb_表A.find({“$or”:[{“age”:20},{“age”:35}]}):</p>
+<p>all 是符合全部条件</p>
+<p>dic = {“name”:”lisi”,”age”:18,”li”:[1,2,3]}</p>
+<p>dic2 = {“name”:”zhangsan”,”age”:18,”li”:[1,2,3,4,5,6]}</p>
+<p> tb_表A.insert(dic)</p>
+<p> tb_表A.insert(dic2)</p>
+<p>for i in  tb_表A.find({‘li’:{‘$all’:[1,2,3,4]}}):</p>
+<p>找到</p>
+<p>{‘_id’: ObjectId(‘58c503b94fc9d44624f7b108’), ‘name’: ‘zhangsan’, ‘age’: 18, ‘li’: [1, 2, 3, 4, 5, 6]}</p>
+<ol start="10">
+<li>push/pushAll</li>
+</ol>
+<p>my_set.update({‘name’:”lisi”}, {‘$push’:{‘li’:4}})</p>
+<p>for i in my_set.find({‘name’:”lisi”}):</p>
+<p>输出</p>
+<p>{‘li’: [1, 2, 3, 4], ‘_id’: ObjectId(‘58c50d784fc9d44ad8f2e803’), ‘age’: 18, ‘name’: ‘lisi’}</p>
+<p>my_set.update({‘name’:”lisi”}, {‘$pushAll’:{‘li’:[4,5]}})</p>
+<p>for i in my_set.find({‘name’:”lisi”}):</p>
+<p>输出</p>
+<p>{‘li’: [1, 2, 3, 4, 4, 5], ‘name’: ‘lisi’, ‘age’: 18, ‘_id’: ObjectId(‘58c50d784fc9d44ad8f2e803’)}</p>
+<ol start="11">
+<li>pop/pull/pullAll</li>
+</ol>
+<p>pop</p>
+<p>移除最后一个元素(-1为移除第一个)</p>
+<p>my_set.update({‘name’:”lisi”}, {‘$pop’:{‘li’:1}})</p>
+<p>for i in my_set.find({‘name’:”lisi”}):</p>
+<p>输出</p>
+<p>{‘_id’: ObjectId(‘58c50d784fc9d44ad8f2e803’), ‘age’: 18, ‘name’: ‘lisi’, ‘li’: [1, 2, 3, 4, 4]}</p>
+<p>pull （按值移除）</p>
+<p>移除3</p>
+<p>my_set.update({‘name’:”lisi”}, {‘$pop’:{‘li’:3}})</p>
+<p>pullAll （移除全部符合条件的）</p>
+<p>my_set.update({‘name’:”lisi”}, {‘$pullAll’:{‘li’:[1,2,3]}})</p>
+<p>for i in my_set.find({‘name’:”lisi”}):</p>
+<p>输出</p>
+<p>{‘name’: ‘lisi’, ‘_id’: ObjectId(‘58c50d784fc9d44ad8f2e803’), ‘li’: [4, 4], ‘age’: 18}</p>
+<ol start="12">
+<li>还有其他复杂操作 使用时再探究吧</li>
+</ol>
+<p>下附 封装代码</p>
+<pre><code>from pymongo import MongoClient
+
+
+settings = {
+    &quot;ip&quot;:&apos;192.168.0.113&apos;,   #ip
+    &quot;port&quot;:27017,           #端口
+    &quot;db_name&quot; : &quot;mydb&quot;,    #数据库名字
+    &quot;set_name&quot; : &quot;test_set&quot;   #集合名字
+}
+
+class MyMongoDB(object):
+    def __init__(self):
+        try:
+            self.conn = MongoClient(settings[&quot;ip&quot;], settings[&quot;port&quot;])
+        except Exception as e:
+            print(e)
+        self.db = self.conn[settings[&quot;db_name&quot;]]
+        self.my_set = self.db[settings[&quot;set_name&quot;]]
+
+    def insert(self,dic):
+        print(&quot;inser...&quot;)
+        self.my_set.insert(dic)
+
+    def update(self,dic,newdic):
+        print(&quot;update...&quot;)
+        self.my_set.update(dic,newdic)
+
+    def delete(self,dic):
+        print(&quot;delete...&quot;)
+        self.my_set.remove(dic)
+
+    def dbfind(self,dic):
+        print(&quot;find...&quot;)
+        data = self.my_set.find(dic)
+        for result in data:
+            print(result[&quot;name&quot;],result[&quot;age&quot;])
+
+def main():
+    dic={&quot;name&quot;:&quot;zhangsan&quot;,&quot;age&quot;:18}
+    mongo = MyMongoDB()
+    mongo.insert(dic)
+    mongo.dbfind({&quot;name&quot;:&quot;zhangsan&quot;})
+
+    mongo.update({&quot;name&quot;:&quot;zhangsan&quot;},{&quot;$set&quot;:{&quot;age&quot;:&quot;25&quot;}})
+    mongo.dbfind({&quot;name&quot;:&quot;zhangsan&quot;})
+
+    mongo.delete({&quot;name&quot;:&quot;zhangsan&quot;})
+    mongo.dbfind({&quot;name&quot;:&quot;zhangsan&quot;})
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+    <div>
+      
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+     
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2018/04/03/git/" rel="next" title="Git">
+                <i class="fa fa-chevron-left"></i> Git
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2018/04/16/python操作mongodb/" rel="prev" title="python操作mongodb">
+                python操作mongodb <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+
+  <span class="post-meta-divider">|--- Jian China 个人博客 ---</span>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>
