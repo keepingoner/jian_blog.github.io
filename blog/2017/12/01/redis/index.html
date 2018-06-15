@@ -85,19 +85,19 @@ color="0,0,0" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas
 
 
 
-<meta name="description" content="redisRedis�������1�����Ӳ������� quit���ر����ӣ�connection��auth������������֤help cmd�� �鿴cmd���������磺help quit 2���־û� save��������ͬ�����浽����bgsave���������첽���浽����lastsave�������ϴγɹ������ݱ��浽���̵�">
+<meta name="description" content="redisRedis常用命令集1）连接操作命令 quit：关闭连接（connection）auth：简单密码认证help cmd： 查看cmd帮助，例如：help quit 2）持久化 save：将数据同步保存到磁盘bgsave：将数据异步保存到磁盘lastsave：返回上次成功将数据保存到磁盘的Unix时戳shundown：将数据同步保存到磁盘，然后关闭服务 3）远程服务控制 info：提供服务">
 <meta name="keywords" content="redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redis">
 <meta property="og:url" content="https://keepingoner.github.io./blog/2017/12/01/redis/index.html">
 <meta property="og:site_name" content="Jian China">
-<meta property="og:description" content="redisRedis�������1�����Ӳ������� quit���ر����ӣ�connection��auth������������֤help cmd�� �鿴cmd���������磺help quit 2���־û� save��������ͬ�����浽����bgsave���������첽���浽����lastsave�������ϴγɹ������ݱ��浽���̵�">
+<meta property="og:description" content="redisRedis常用命令集1）连接操作命令 quit：关闭连接（connection）auth：简单密码认证help cmd： 查看cmd帮助，例如：help quit 2）持久化 save：将数据同步保存到磁盘bgsave：将数据异步保存到磁盘lastsave：返回上次成功将数据保存到磁盘的Unix时戳shundown：将数据同步保存到磁盘，然后关闭服务 3）远程服务控制 info：提供服务">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://keepingoner.github.io./keepingoner.github.io/images/redis.png">
-<meta property="og:updated_time" content="2018-06-14T02:06:42.480Z">
+<meta property="og:updated_time" content="2018-06-15T08:31:46.554Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis">
-<meta name="twitter:description" content="redisRedis�������1�����Ӳ������� quit���ر����ӣ�connection��auth������������֤help cmd�� �鿴cmd���������磺help quit 2���־û� save��������ͬ�����浽����bgsave���������첽���浽����lastsave�������ϴγɹ������ݱ��浽���̵�">
+<meta name="twitter:description" content="redisRedis常用命令集1）连接操作命令 quit：关闭连接（connection）auth：简单密码认证help cmd： 查看cmd帮助，例如：help quit 2）持久化 save：将数据同步保存到磁盘bgsave：将数据异步保存到磁盘lastsave：返回上次成功将数据保存到磁盘的Unix时戳shundown：将数据同步保存到磁盘，然后关闭服务 3）远程服务控制 info：提供服务">
 <meta name="twitter:image" content="https://keepingoner.github.io./keepingoner.github.io/images/redis.png">
 
 
@@ -315,36 +315,36 @@ color="0,0,0" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas
       
 
       
-        <h2 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h2><p>Redis�������<br>1�����Ӳ�������</p>
-<p>quit���ر����ӣ�connection��<br>auth������������֤<br>help cmd�� �鿴cmd���������磺help quit</p>
-<p>2���־û�</p>
-<p>save��������ͬ�����浽����<br>bgsave���������첽���浽����<br>lastsave�������ϴγɹ������ݱ��浽���̵�Unixʱ��<br>shundown��������ͬ�����浽���̣�Ȼ���رշ���</p>
-<p>3��Զ�̷�������</p>
-<p>info���ṩ����������Ϣ��ͳ��<br>monitor��ʵʱת���յ�������<br>slaveof���ı临�Ʋ�������<br>config��������ʱ����Redis������</p>
-<p>4����value����������</p>
-<p>exists(key)��ȷ��һ��key�Ƿ�����<br>del(key)��ɾ��һ��key<br>type(key)������ֵ������<br>keys(pattern)��������������pattern������key<br>randomkey����������key�ռ���һ��<br>keyrename(oldname, newname)��������key<br>dbsize�����ص�ǰ���ݿ���key����Ŀ<br>expire���趨һ��key�Ļʱ�䣨s��<br>ttl������һ��key�Ļʱ��<br>select(index)����������ѯ<br>move(key, dbindex)���ƶ���ǰ���ݿ��е�key��dbindex���ݿ�<br>flushdb��ɾ����ǰѡ�����ݿ��е�����key<br>flushall��ɾ���������ݿ��е�����key</p>
-<p>5��String</p>
-<p>set(key, value)�������ݿ�������Ϊkey��string����ֵvalue<br>get(key)���������ݿ�������Ϊkey��string��value<br>getset(key, value)��������Ϊkey��string������һ�ε�value<br>mget(key1, key2,��, key N)�����ؿ��ж���string��value<br>setnx(key, value)������string������Ϊkey��ֵΪvalue<br>setex(key, time, value)������������string���趨����ʱ��time<br>mset(key N, value N)���������ö���string��ֵ<br>msetnx(key N, value N)��������������Ϊkey i��string��������<br>incr(key)������Ϊkey��string��1����<br>incrby(key, integer)������Ϊkey��string����integer<br>decr(key)������Ϊkey��string��1����<br>decrby(key, integer)������Ϊkey��string����integer<br>append(key, value)������Ϊkey��string��ֵ����value<br>substr(key, start, end)����������Ϊkey��string��value���Ӵ�</p>
-<p>6��List </p>
-<p>rpush(key, value)��������Ϊkey��listβ����һ��ֵΪvalue��Ԫ��<br>lpush(key, value)��������Ϊkey��listͷ����һ��ֵΪvalue�� Ԫ��<br>llen(key)����������Ϊkey��list�ĳ���<br>lrange(key, start, end)����������Ϊkey��list��start��end֮����Ԫ��<br>ltrim(key, start, end)����ȡ����Ϊkey��list<br>lindex(key, index)����������Ϊkey��list��indexλ�õ�Ԫ��<br>lset(key, index, value)��������Ϊkey��list��indexλ�õ�Ԫ�ظ�ֵ<br>lrem(key, count, value)��ɾ��count��key��list��ֵΪvalue��Ԫ��<br>lpop(key)�����ز�ɾ������Ϊkey��list�е���Ԫ��<br>rpop(key)�����ز�ɾ������Ϊkey��list�е�βԪ��<br>blpop(key1, key2,�� key N, timeout)��lpop������block�汾��<br>brpop(key1, key2,�� key N, timeout)��rpop��block�汾��<br>rpoplpush(srckey, dstkey)�����ز�ɾ������Ϊsrckey��list��βԪ�أ�������Ԫ�����ӵ�����Ϊdstkey��list��ͷ��</p>
-<p>7��Set</p>
-<p>sadd(key, member)��������Ϊkey��set������Ԫ��member<br>srem(key, member) ��ɾ������Ϊkey��set�е�Ԫ��member<br>spop(key) ���������ز�ɾ������Ϊkey��set��һ��Ԫ��<br>smove(srckey, dstkey, member) ���Ƶ�����Ԫ��<br>scard(key) ����������Ϊkey��set�Ļ���<br>sismember(key, member) ��member�Ƿ�������Ϊkey��set��Ԫ��<br>sinter(key1, key2,��key N) ���󽻼�<br>sinterstore(dstkey, (keys)) ���󽻼������������浽dstkey�ļ���<br>sunion(key1, (keys)) ���󲢼�<br>sunionstore(dstkey, (keys)) ���󲢼������������浽dstkey�ļ���<br>sdiff(key1, (keys)) �����<br>sdiffstore(dstkey, (keys)) �������������浽dstkey�ļ���<br>smembers(key) ����������Ϊkey��set������Ԫ��<br>srandmember(key) ��������������Ϊkey��set��һ��Ԫ��</p>
-<p>8��Hash</p>
-<p>hset(key, field, value)��������Ϊkey��hash������Ԫ��field<br>hget(key, field)����������Ϊkey��hash��field��Ӧ��value<br>hmget(key, (fields))����������Ϊkey��hash��field i��Ӧ��value<br>hmset(key, (fields))��������Ϊkey��hash������Ԫ��field<br>hincrby(key, field, integer)��������Ϊkey��hash��field��value����integer<br>hexists(key, field)������Ϊkey��hash���Ƿ����ڼ�Ϊfield����<br>hdel(key, field)��ɾ������Ϊkey��hash�м�Ϊfield����<br>hlen(key)����������Ϊkey��hash��Ԫ�ظ���<br>hkeys(key)����������Ϊkey��hash�����м�<br>hvals(key)����������Ϊkey��hash�����м���Ӧ��value<br>hgetall(key)����������Ϊkey��hash�����еļ���field��������Ӧ��value</p>
-<p>Redis�߼�Ӧ��<br>1����ȫ��<br>    ���ÿͻ������Ӻ������κβ���ָ��ǰ��Ҫ���룬һ���ⲿ�û�������һ���ӽ���150W�η��ʣ��������������޸�����redis.conf������requirepass���Ը������룬��Ȼ������������primos<br>֮���������������Բ��õ�½��ʱ������Ȩʹ��:<br>sudo /opt/java/redis/bin/redis-cli -a primos<br>�����ǽ����Ժ�auth primosȻ���Ϳ�������������</p>
-<p>2�����Ӹ���<br>������������ʱ����׼����������������ip�ֱ���192.168.15.128��192.168.15.133<br>    ͨ�����Ӹ��ƿ�����������slave serverӵ�к�master server��ͬ�����ݿ⸱��<br>������������slave��������slave<br>slaveof 192.168.15.128 6379<br>masterauth primos<br>����û������ͬ����ô�ͼ���һ���ǲ��Ƿ���ǽ�����⣬���õ���ufw������һ��sudo ufw allow 6379�Ϳ�����<br>����ʱ������ͨ��info�鿴����������</p>
-<p>3����������<br>redis��������֧�ֻ��Ƚϼ򵥣�redisֻ�ܱ�֤һ��client�����������е�������������ִ�У����м䲻����������client�������һ��client��һ�������з���multi����ʱ���������ӻ�����һ�������������ģ����Ӻ������������ִ�У������ȷŵ�һ�������У���ִ��exec����ʱ��redis��˳����ִ�ж����е��������<br>������������һ������<br>set age 100<br>multi<br>set age 10<br>set age 20<br>exec<br>get age –�������ݾ�Ӧ����20<br>multi<br>set age 20<br>set age 10<br>exec<br>get age –����ʱ�������ݾͳ���10������������һ�°��ն���˳��ִ�еķ�ʽ<br>discard  ȡ������������Ҳ���������ع�<br>������redis����ִ���и���������ʱ�������񲻻��ع������Ѳ�����������ִ�У�����������ֱ�ӷ�����Ŀǰ���µ���2.6.7Ҳ������������<br>�ֹ���<br>watch key����ûwatch��key�иĶ���ôoutdate�������ǲ���ִ�е�</p>
-<p>4���־û�����<br>redis��һ��֧�ֳ־û����ڴ����ݿ�<br>snapshotting���շ�ʽ��Ĭ�ϵĴ洢��ʽ��Ĭ��д��dump.rdb�Ķ������ļ��У���������redis��n������������m��key���޸Ĺ����Զ�������<br>append-only file aof��ʽ��ʹ��aofʱ��redis�Ὣÿһ�εĺ� ����׷�ӵ��ļ��У���redis����ʱ������ִ���ļ��еı�����д��<br>�����ڴ��С�<br>5������������Ϣ sbusribe publish��������ʵ������linux��������Ϣ����<br>6�������ڴ���ʹ��<br>��������vm���ܣ�����·���������ڴ����ߣ�ҳ�����٣�ҳ����С�����������߳�<br>��ʱ�޸�ip��ַifconfig eth0 192.168.15.129</p>
-<p>Redis-cli����</p>
+        <h2 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h2><p>Redis常用命令集<br>1）连接操作命令</p>
+<p>quit：关闭连接（connection）<br>auth：简单密码认证<br>help cmd： 查看cmd帮助，例如：help quit</p>
+<p>2）持久化</p>
+<p>save：将数据同步保存到磁盘<br>bgsave：将数据异步保存到磁盘<br>lastsave：返回上次成功将数据保存到磁盘的Unix时戳<br>shundown：将数据同步保存到磁盘，然后关闭服务</p>
+<p>3）远程服务控制</p>
+<p>info：提供服务器的信息和统计<br>monitor：实时转储收到的请求<br>slaveof：改变复制策略设置<br>config：在运行时配置Redis服务器</p>
+<p>4）对value操作的命令</p>
+<p>exists(key)：确认一个key是否存在<br>del(key)：删除一个key<br>type(key)：返回值的类型<br>keys(pattern)：返回满足给定pattern的所有key<br>randomkey：随机返回key空间的一个<br>keyrename(oldname, newname)：重命名key<br>dbsize：返回当前数据库中key的数目<br>expire：设定一个key的活动时间（s）<br>ttl：获得一个key的活动时间<br>select(index)：按索引查询<br>move(key, dbindex)：移动当前数据库中的key到dbindex数据库<br>flushdb：删除当前选择数据库中的所有key<br>flushall：删除所有数据库中的所有key</p>
+<p>5）String</p>
+<p>set(key, value)：给数据库中名称为key的string赋予值value<br>get(key)：返回数据库中名称为key的string的value<br>getset(key, value)：给名称为key的string赋予上一次的value<br>mget(key1, key2,…, key N)：返回库中多个string的value<br>setnx(key, value)：添加string，名称为key，值为value<br>setex(key, time, value)：向库中添加string，设定过期时间time<br>mset(key N, value N)：批量设置多个string的值<br>msetnx(key N, value N)：如果所有名称为key i的string都不存在<br>incr(key)：名称为key的string增1操作<br>incrby(key, integer)：名称为key的string增加integer<br>decr(key)：名称为key的string减1操作<br>decrby(key, integer)：名称为key的string减少integer<br>append(key, value)：名称为key的string的值附加value<br>substr(key, start, end)：返回名称为key的string的value的子串</p>
+<p>6）List </p>
+<p>rpush(key, value)：在名称为key的list尾添加一个值为value的元素<br>lpush(key, value)：在名称为key的list头添加一个值为value的 元素<br>llen(key)：返回名称为key的list的长度<br>lrange(key, start, end)：返回名称为key的list中start至end之间的元素<br>ltrim(key, start, end)：截取名称为key的list<br>lindex(key, index)：返回名称为key的list中index位置的元素<br>lset(key, index, value)：给名称为key的list中index位置的元素赋值<br>lrem(key, count, value)：删除count个key的list中值为value的元素<br>lpop(key)：返回并删除名称为key的list中的首元素<br>rpop(key)：返回并删除名称为key的list中的尾元素<br>blpop(key1, key2,… key N, timeout)：lpop命令的block版本。<br>brpop(key1, key2,… key N, timeout)：rpop的block版本。<br>rpoplpush(srckey, dstkey)：返回并删除名称为srckey的list的尾元素，并将该元素添加到名称为dstkey的list的头部</p>
+<p>7）Set</p>
+<p>sadd(key, member)：向名称为key的set中添加元素member<br>srem(key, member) ：删除名称为key的set中的元素member<br>spop(key) ：随机返回并删除名称为key的set中一个元素<br>smove(srckey, dstkey, member) ：移到集合元素<br>scard(key) ：返回名称为key的set的基数<br>sismember(key, member) ：member是否是名称为key的set的元素<br>sinter(key1, key2,…key N) ：求交集<br>sinterstore(dstkey, (keys)) ：求交集并将交集保存到dstkey的集合<br>sunion(key1, (keys)) ：求并集<br>sunionstore(dstkey, (keys)) ：求并集并将并集保存到dstkey的集合<br>sdiff(key1, (keys)) ：求差集<br>sdiffstore(dstkey, (keys)) ：求差集并将差集保存到dstkey的集合<br>smembers(key) ：返回名称为key的set的所有元素<br>srandmember(key) ：随机返回名称为key的set的一个元素</p>
+<p>8）Hash</p>
+<p>hset(key, field, value)：向名称为key的hash中添加元素field<br>hget(key, field)：返回名称为key的hash中field对应的value<br>hmget(key, (fields))：返回名称为key的hash中field i对应的value<br>hmset(key, (fields))：向名称为key的hash中添加元素field<br>hincrby(key, field, integer)：将名称为key的hash中field的value增加integer<br>hexists(key, field)：名称为key的hash中是否存在键为field的域<br>hdel(key, field)：删除名称为key的hash中键为field的域<br>hlen(key)：返回名称为key的hash中元素个数<br>hkeys(key)：返回名称为key的hash中所有键<br>hvals(key)：返回名称为key的hash中所有键对应的value<br>hgetall(key)：返回名称为key的hash中所有的键（field）及其对应的value</p>
+<p>Redis高级应用<br>1、安全性<br>    设置客户端连接后进行任何操作指定前需要密码，一个外部用户可以再一秒钟进行150W次访问，具体操作密码修改设置redis.conf里面的requirepass属性给予密码，当然我这里给的是primos<br>之后如果想操作可以采用登陆的时候就授权使用:<br>sudo /opt/java/redis/bin/redis-cli -a primos<br>或者是进入以后auth primos然后就可以随意操作了</p>
+<p>2、主从复制<br>做这个操作的时候我准备了两个虚拟机，ip分别是192.168.15.128和192.168.15.133<br>    通过主从复制可以允许多个slave server拥有和master server相同的数据库副本<br>具体配置是在slave上面配置slave<br>slaveof 192.168.15.128 6379<br>masterauth primos<br>如果没有主从同步那么就检查一下是不是防火墙的问题，我用的是ufw，设置一下sudo ufw allow 6379就可以了<br>这个时候可以通过info查看具体的情况</p>
+<p>3、事务处理<br>redis对事务的支持还比较简单，redis只能保证一个client发起的事务中的命令可以连续执行，而中间不会插入其他client的命令。当一个client在一个连接中发出multi命令时，这个连接会进入一个事务的上下文，连接后续命令不会立即执行，而是先放到一个队列中，当执行exec命令时，redis会顺序的执行队列中的所有命令。<br>比如我下面的一个例子<br>set age 100<br>multi<br>set age 10<br>set age 20<br>exec<br>get age –这个内容就应该是20<br>multi<br>set age 20<br>set age 10<br>exec<br>get age –这个时候的内容就成了10，充分体现了一下按照队列顺序执行的方式<br>discard  取消所有事务，也就是事务回滚<br>不过在redis事务执行有个别错误的时候，事务不会回滚，会把不错误的内容执行，错误的内容直接放弃，目前最新的是2.6.7也有这个问题的<br>乐观锁<br>watch key如果没watch的key有改动那么outdate的事务是不能执行的</p>
+<p>4、持久化机制<br>redis是一个支持持久化的内存数据库<br>snapshotting快照方式，默认的存储方式，默认写入dump.rdb的二进制文件中，可以配置redis在n秒内如果超过m个key被修改过就自动做快照<br>append-only file aof方式，使用aof时候redis会将每一次的函 数都追加到文件中，当redis重启时会重新执行文件中的保存的写命<br>令在内存中。<br>5、发布订阅消息 sbusribe publish操作，其实就类似linux下面的消息发布<br>6、虚拟内存的使用<br>可以配置vm功能，保存路径，最大内存上线，页面多少，页面大小，最大工作线程<br>临时修改ip地址ifconfig eth0 192.168.15.129</p>
+<p>Redis-cli参数</p>
 <p>Usage: redis-cli [OPTIONS] [cmd [arg [arg …]]]<br>  -h <hostname>    Server hostname (default: 127.0.0.1)<br>  -p <port>        Server port (default: 6379)<br>  -s <socket>      Server socket (overrides hostname and port)<br>  -a <password>    Password to use when connecting to the server<br>  -r <repeat>      Execute specified command N times<br>  -i <interval>    When -r is used, waits <interval> seconds per command.<br>                   It is possible to specify sub-second times like -i 0.1<br>  -n <db>          Database number<br>  -x               Read last argument from STDIN<br>  -d <delimiter>   Multi-bulk delimiter in for raw formatting (default: \n)<br>  -c               Enable cluster mode (follow -ASK and -MOVED redirections)<br>  –raw            Use raw formatting for replies (default when STDOUT is not a  tty)<br>  –latency        Enter a special mode continuously sampling latency<br>  –slave          Simulate a slave showing commands received from the master<br>  –pipe           Transfer raw Redis protocol from stdin to server<br>  –bigkeys        Sample Redis keys looking for big keys<br>  –eval <file>    Send an EVAL command using the Lua script at <file><br>  –help           Output this help and exit<br>  –version        Output version and exit</file></file></delimiter></db></interval></interval></repeat></password></socket></port></hostname></p>
 <p>Examples:<br>  cat /etc/passwd | redis-cli -x set mypasswd<br>  redis-cli get mypasswd<br>  redis-cli -r 100 lpush mylist x<br>  redis-cli -r 100 -i 1 info | grep used_memory_human:<br>  redis-cli –eval myscript.lua key1 key2 , arg1 arg2 arg3<br>  (Note: when using –eval the comma separates KEYS[] from ARGV[] items)</p>
-<p>�������</p>
-<p>1�� �鿴keys����</p>
-<p>keys *      // �鿴����keys</p>
-<p>keys prefix_*     // �鿴ǰ׺Ϊ”prefix_”������keys</p>
-<p>2�� �������ݿ�</p>
-<p>flushdb   // ������ǰ���ݿ�������keys</p>
-<p>flushall    // �����������ݿ�������keys<br><img src="/keepingoner.github.io/images/redis.png" alt=""></p>
+<p>常用命令：</p>
+<p>1） 查看keys个数</p>
+<p>keys *      // 查看所有keys</p>
+<p>keys prefix_*     // 查看前缀为”prefix_”的所有keys</p>
+<p>2） 清空数据库</p>
+<p>flushdb   // 清除当前数据库的所有keys</p>
+<p>flushall    // 清除所有数据库的所有keys<br><img src="/keepingoner.github.io/images/redis.png" alt=""></p>
 
       
     </div>
