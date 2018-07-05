@@ -85,17 +85,17 @@ color="0,0,0" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas
 
 
 
-<meta name="description" content="rest framework jwt##jwt默认使用的是django的 from django.contrib.auth.models import User 里的user ##有时候我们项目应用场景可能与默认的有点出去，我提供了两种方法，一个是扩展User模型，另一个是直接重构，第一张网上答案特别多，我这里只写第二种 ##废话有点多，直接看代码 添加登录接口 from rest_framewo">
+<meta name="description" content="rest framework jwt##jwt默认使用的是django的 from django.contrib.auth.models import User 里的user ##有时候我们项目应用场景可能与默认的有点出入，我提供了两种方法，一个是扩展User模型，另一个是直接重构，第一张网上答案特别多，我这里只写第二种 ##废话有点多，直接看代码 添加登录接口 from rest_framewo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="rest framework jwt">
 <meta property="og:url" content="https://keepingoner.github.io./blog/2018/07/05/rest-framework-jwt/index.html">
 <meta property="og:site_name" content="Jian China">
-<meta property="og:description" content="rest framework jwt##jwt默认使用的是django的 from django.contrib.auth.models import User 里的user ##有时候我们项目应用场景可能与默认的有点出去，我提供了两种方法，一个是扩展User模型，另一个是直接重构，第一张网上答案特别多，我这里只写第二种 ##废话有点多，直接看代码 添加登录接口 from rest_framewo">
+<meta property="og:description" content="rest framework jwt##jwt默认使用的是django的 from django.contrib.auth.models import User 里的user ##有时候我们项目应用场景可能与默认的有点出入，我提供了两种方法，一个是扩展User模型，另一个是直接重构，第一张网上答案特别多，我这里只写第二种 ##废话有点多，直接看代码 添加登录接口 from rest_framewo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-05T05:46:09.801Z">
+<meta property="og:updated_time" content="2018-07-05T05:52:27.776Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rest framework jwt">
-<meta name="twitter:description" content="rest framework jwt##jwt默认使用的是django的 from django.contrib.auth.models import User 里的user ##有时候我们项目应用场景可能与默认的有点出去，我提供了两种方法，一个是扩展User模型，另一个是直接重构，第一张网上答案特别多，我这里只写第二种 ##废话有点多，直接看代码 添加登录接口 from rest_framewo">
+<meta name="twitter:description" content="rest framework jwt##jwt默认使用的是django的 from django.contrib.auth.models import User 里的user ##有时候我们项目应用场景可能与默认的有点出入，我提供了两种方法，一个是扩展User模型，另一个是直接重构，第一张网上答案特别多，我这里只写第二种 ##废话有点多，直接看代码 添加登录接口 from rest_framewo">
 
 
 
@@ -313,7 +313,7 @@ color="0,0,0" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas
 
       
         <h1 id="rest-framework-jwt"><a href="#rest-framework-jwt" class="headerlink" title="rest framework jwt"></a>rest framework jwt</h1><p>##jwt默认使用的是django的 from django.contrib.auth.models import User 里的user</p>
-<p>##有时候我们项目应用场景可能与默认的有点出去，我提供了两种方法，一个是扩展User模型，另一个是直接重构，第一张网上答案特别多，我这里只写第二种</p>
+<p>##有时候我们项目应用场景可能与默认的有点出入，我提供了两种方法，一个是扩展User模型，另一个是直接重构，第一张网上答案特别多，我这里只写第二种</p>
 <p>##废话有点多，直接看代码</p>
 <p>添加登录接口</p>
 <pre><code>from rest_framework_jwt.views import obtain_jwt_token, verify_jwt_token, refresh_jwt_token
@@ -324,7 +324,8 @@ color="0,0,0" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas
 <pre><code>AUTHENTICATION_BACKENDS = (
     &apos;xxx.xxx.MyBackend&apos;,
 )
-</code></pre><p>这里使用的是mongodb的序列化工具  mongoengine</p>
+</code></pre><p>django验证的时候会依次根据你写的 ModelBackend 查找，找到就停止。</p>
+<p>这里使用的是mongodb的序列化工具  mongoengine</p>
 <pre><code>from mongoengine import *
 
 connect(&apos;db_core&apos;)
@@ -403,7 +404,7 @@ class MyVerifySerializer(VerifyJSONWebTokenSerializer):
             raise serializers.ValidationError(msg)
 
         return payload
-
+    # 这里重写了  使用自己的验证
     def _check_user(self, payload):
         username = jwt_get_username_from_payload(payload)
 
@@ -428,9 +429,8 @@ class MyVerifySerializer(VerifyJSONWebTokenSerializer):
             raise serializers.ValidationError(msg)
 
         return user
-
-
-class MyVerify(VerifyJSONWebToken):
+</code></pre><p>这里使用自己的类</p>
+<pre><code>class MyVerify(VerifyJSONWebToken):
     serializer_class = MyVerifySerializer
 </code></pre><h2 id="总结-jwt用起来还是很方便的，根据需求，稍微重写一下方法就好，耐心研究，写的有什么不对的地方，大家可以我和讨论"><a href="#总结-jwt用起来还是很方便的，根据需求，稍微重写一下方法就好，耐心研究，写的有什么不对的地方，大家可以我和讨论" class="headerlink" title="总结  jwt用起来还是很方便的，根据需求，稍微重写一下方法就好，耐心研究，写的有什么不对的地方，大家可以我和讨论"></a>总结  jwt用起来还是很方便的，根据需求，稍微重写一下方法就好，耐心研究，写的有什么不对的地方，大家可以我和讨论</h2>
       
