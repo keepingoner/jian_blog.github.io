@@ -85,17 +85,17 @@ color="0,0,0" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas
 
 
 
-<meta name="description" content="rest framework jwt##jwt默认使用的是django的 from django.contrib.auth.models import User 里的user ##有时候我们项目应用场景可能与默认的有点出入，我提供了两种方法，一个是扩展User模型，另一个是直接重构，第一张网上答案特别多，我这里只写第二种 ##废话有点多，直接看代码 添加登录接口 from rest_framewo">
+<meta name="description" content="#周末来加班的感慨 从我个人的经历及这个年纪对这个事情的观察，个人认为加班这个事情从某些方面应该分为几种情况：  为了加班费而加班 任务没完成而加班 愿意学习加班  分开详解： 第1种情况比较好理解，比如一些比较正规的代工厂像富士康和一些台湾的劳动密集型企业的员工加班工资还是比较可观的（相对低的可怜的底薪），一些员工想加班挣更多的辛苦钱，同时公司制度还允许的。 第2种情况可能就是因为项目原因或者是">
 <meta property="og:type" content="article">
-<meta property="og:title" content="rest framework jwt">
-<meta property="og:url" content="https://keepingoner.github.io./blog/2018/07/05/rest-framework-jwt/index.html">
+<meta property="og:title" content="关于加班">
+<meta property="og:url" content="https://keepingoner.github.io./blog/2018/07/07/关于加班/index.html">
 <meta property="og:site_name" content="Jian China">
-<meta property="og:description" content="rest framework jwt##jwt默认使用的是django的 from django.contrib.auth.models import User 里的user ##有时候我们项目应用场景可能与默认的有点出入，我提供了两种方法，一个是扩展User模型，另一个是直接重构，第一张网上答案特别多，我这里只写第二种 ##废话有点多，直接看代码 添加登录接口 from rest_framewo">
+<meta property="og:description" content="#周末来加班的感慨 从我个人的经历及这个年纪对这个事情的观察，个人认为加班这个事情从某些方面应该分为几种情况：  为了加班费而加班 任务没完成而加班 愿意学习加班  分开详解： 第1种情况比较好理解，比如一些比较正规的代工厂像富士康和一些台湾的劳动密集型企业的员工加班工资还是比较可观的（相对低的可怜的底薪），一些员工想加班挣更多的辛苦钱，同时公司制度还允许的。 第2种情况可能就是因为项目原因或者是">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-05T05:52:27.776Z">
+<meta property="og:updated_time" content="2018-07-07T02:30:59.252Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="rest framework jwt">
-<meta name="twitter:description" content="rest framework jwt##jwt默认使用的是django的 from django.contrib.auth.models import User 里的user ##有时候我们项目应用场景可能与默认的有点出入，我提供了两种方法，一个是扩展User模型，另一个是直接重构，第一张网上答案特别多，我这里只写第二种 ##废话有点多，直接看代码 添加登录接口 from rest_framewo">
+<meta name="twitter:title" content="关于加班">
+<meta name="twitter:description" content="#周末来加班的感慨 从我个人的经历及这个年纪对这个事情的观察，个人认为加班这个事情从某些方面应该分为几种情况：  为了加班费而加班 任务没完成而加班 愿意学习加班  分开详解： 第1种情况比较好理解，比如一些比较正规的代工厂像富士康和一些台湾的劳动密集型企业的员工加班工资还是比较可观的（相对低的可怜的底薪），一些员工想加班挣更多的辛苦钱，同时公司制度还允许的。 第2种情况可能就是因为项目原因或者是">
 
 
 
@@ -125,13 +125,13 @@ color="0,0,0" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas
 
 
 
-  <link rel="canonical" href="https://keepingoner.github.io./blog/2018/07/05/rest-framework-jwt/"/>
+  <link rel="canonical" href="https://keepingoner.github.io./blog/2018/07/07/关于加班/"/>
 
 
 
 
 
-  <title>rest framework jwt | Jian China</title>
+  <title>关于加班 | Jian China</title>
   
 
 
@@ -245,7 +245,7 @@ color="0,0,0" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://keepingoner.github.io./blog/blog/2018/07/05/rest-framework-jwt/">
+    <link itemprop="mainEntityOfPage" href="https://keepingoner.github.io./blog/blog/2018/07/07/关于加班/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jian">
@@ -262,7 +262,7 @@ color="0,0,0" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas
 
         
         
-          <h1 class="post-title" itemprop="name headline">rest framework jwt</h1>
+          <h1 class="post-title" itemprop="name headline">关于加班</h1>
         
 
         <div class="post-meta">
@@ -274,8 +274,8 @@ color="0,0,0" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-05T13:17:13+08:00">
-                2018-07-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-07T09:57:05+08:00">
+                2018-07-07
               </time>
             
 
@@ -312,127 +312,24 @@ color="0,0,0" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas
       
 
       
-        <h1 id="rest-framework-jwt"><a href="#rest-framework-jwt" class="headerlink" title="rest framework jwt"></a>rest framework jwt</h1><p>##jwt默认使用的是django的 from django.contrib.auth.models import User 里的user</p>
-<p>##有时候我们项目应用场景可能与默认的有点出入，我提供了两种方法，一个是扩展User模型，另一个是直接重构，第一张网上答案特别多，我这里只写第二种</p>
-<p>##废话有点多，直接看代码</p>
-<p>添加登录接口</p>
-<pre><code>from rest_framework_jwt.views import obtain_jwt_token, verify_jwt_token, refresh_jwt_token
-</code></pre><p>配置url</p>
-<pre><code>url(r&apos;^login/$&apos;, obtain_jwt_token, name=&apos;login&apos;),
-</code></pre><p>现在调用接口，就可以获取token了，我这里没有使用默认的django user，具体代码如下， (补充数据库是mongodb)</p>
-<p>记得在setting里设置</p>
-<pre><code>AUTHENTICATION_BACKENDS = (
-    &apos;xxx.xxx.MyBackend&apos;,
-)
-</code></pre><p>django验证的时候会依次根据你写的 ModelBackend 查找，找到就停止。</p>
-<p>这里使用的是mongodb的序列化工具  mongoengine</p>
-<pre><code>from mongoengine import *
-
-connect(&apos;db_core&apos;)
-</code></pre><p>注意 类名对应数据库里的表名   例如 TbUser 对应  tb_user</p>
-<pre><code>class TbUser(Document):
-    username = StringField(required=True, max_length=200)
-    pwd = StringField(required=False, max_length=200)
-    _id = StringField(required=True, max_length=200)
-    create_time = StringField(required=True, max_length=200)
-    user_id = StringField(required=True, max_length=200)
-    is_active = StringField(required=False, max_length=200)
-
-
-
-class MyBackend(ModelBackend):
-    def authenticate(self,username=None, password=None, **kwargs):
-        try:
-            if username is not None:
-                users = TbUser.objects
-                for i in users:
-                    if i.username == username and i.pwd == password:
-                        return i
-        except Exception as e :
-            print e
-            return None
-</code></pre><h2 id="得到token-想验证是否合法-可以调用另一个接口"><a href="#得到token-想验证是否合法-可以调用另一个接口" class="headerlink" title="得到token 想验证是否合法  可以调用另一个接口"></a>得到token 想验证是否合法  可以调用另一个接口</h2><pre><code>url(r&apos;^verify/$&apos;, MyVerify.as_view()),
-</code></pre><p>默认认证的时候也是使用django 的user</p>
-<p>我这里重写了认证方法</p>
-<pre><code>import jwt
-
-from calendar import timegm
-from datetime import datetime, timedelta
-
-from django.contrib.auth import authenticate, get_user_model
-from django.utils.translation import ugettext as _
-from rest_framework import serializers
-
-from rest_framework_jwt.settings import api_settings
-
-User = get_user_model()
-jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
-jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
-jwt_decode_handler = api_settings.JWT_DECODE_HANDLER
-jwt_get_username_from_payload = api_settings.JWT_PAYLOAD_GET_USERNAME_HANDLER
-
-from rest_framework_jwt.views import VerifyJSONWebToken, JSONWebTokenAPIView
-
-from rest_framework_jwt.serializers import (JSONWebTokenSerializer, RefreshJSONWebTokenSerializer,
-                                            VerifyJSONWebTokenSerializer
-                                            )
-from one.models import TbUser
-
-
-class MyVerifySerializer(VerifyJSONWebTokenSerializer):
-    def validate(self, attrs):
-        token = attrs[&apos;token&apos;]
-
-        payload = self._check_payload(token=token)
-        user = self._check_user(payload=payload)
-
-        return {
-            &apos;token&apos;: token,
-            &apos;user&apos;: user
-        }
-
-    def _check_payload(self, token):
-        # Check payload valid (based off of JSONWebTokenAuthentication,
-        # may want to refactor)
-        try:
-            payload = jwt_decode_handler(token)
-        except jwt.ExpiredSignature:
-            msg = _(&apos;Signature has expired.&apos;)
-            raise serializers.ValidationError(msg)
-        except jwt.DecodeError:
-            msg = _(&apos;Error decoding signature.&apos;)
-            raise serializers.ValidationError(msg)
-
-        return payload
-    # 这里重写了  使用自己的验证
-    def _check_user(self, payload):
-        username = jwt_get_username_from_payload(payload)
-
-        users = TbUser.objects
-        for i in users:
-            if i.username == username:
-                return i
-
-        if not username:
-            msg = _(&apos;Invalid payload.&apos;)
-            raise serializers.ValidationError(msg)
-
-        # Make sure user exists
-        try:
-            user = User.objects.get_by_natural_key(username)
-        except User.DoesNotExist:
-            msg = _(&quot;User doesn&apos;t exist.&quot;)
-            raise serializers.ValidationError(msg)
-
-        if not user.is_active:
-            msg = _(&apos;User account is disabled.&apos;)
-            raise serializers.ValidationError(msg)
-
-        return user
-</code></pre><p>这里使用自己的类</p>
-<pre><code>class MyVerify(VerifyJSONWebToken):
-    serializer_class = MyVerifySerializer
-</code></pre><h2 id="总结-jwt用起来还是很方便的，根据需求，稍微重写一下方法就好，耐心研究，写的有什么不对的地方，大家可以我和讨论"><a href="#总结-jwt用起来还是很方便的，根据需求，稍微重写一下方法就好，耐心研究，写的有什么不对的地方，大家可以我和讨论" class="headerlink" title="总结  jwt用起来还是很方便的，根据需求，稍微重写一下方法就好，耐心研究，写的有什么不对的地方，大家可以我和讨论"></a>总结  jwt用起来还是很方便的，根据需求，稍微重写一下方法就好，耐心研究，写的有什么不对的地方，大家可以我和讨论</h2>
+        <p>#周末来加班的感慨</p>
+<p>从我个人的经历及这个年纪对这个事情的观察，个人认为加班这个事情从某些方面应该分为几种情况：</p>
+<ol>
+<li>为了加班费而加班</li>
+<li>任务没完成而加班</li>
+<li>愿意学习加班</li>
+</ol>
+<p>分开详解：</p>
+<p>第1种情况比较好理解，比如一些比较正规的代工厂像富士康和一些台湾的劳动密集型企业的员工加班工资还是比较可观的（相对低的可怜的底薪），一些员工想加班挣更多的辛苦钱，同时公司制度还允许的。</p>
+<p>第2种情况可能就是因为项目原因或者是其他原因，导致没有按照原计划完成，而且事情还比较着急。</p>
+<p>第3种情况其实不能叫加班，应该叫对自己要求比较高，因为工作原因或者其他原因，感觉到自己的不足，所以想笨鸟先飞。</p>
+<p>#不会喜欢无目的的加班</p>
+<p>个人感慨：</p>
+<p>加班与年轻、家庭无关，关乎我们自己。</p>
+<p>良性加班：虽然下班时间了，但正成谜于工作，不如加会儿班，完美收尾。</p>
+<p>中性的加班：项目出现了不可控的紧急事件，只能尽快完成吧。</p>
+<p>恶性的加班：由于工作安排不合理，或者打倒工，甚至重复劳动，这种要尽量减少。处于这种加班时，分分钟都有好多小马在奔腾而过。</p>
+<h1 id="一些个人见解，希望帮助到大家，加班与否，自己心里有一杆秤就好！"><a href="#一些个人见解，希望帮助到大家，加班与否，自己心里有一杆秤就好！" class="headerlink" title="一些个人见解，希望帮助到大家，加班与否，自己心里有一杆秤就好！"></a>一些个人见解，希望帮助到大家，加班与否，自己心里有一杆秤就好！</h1>
       
     </div>
     
@@ -466,8 +363,8 @@ class MyVerifySerializer(VerifyJSONWebTokenSerializer):
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2018/07/04/python-i-o/" rel="next" title="python i/o">
-                <i class="fa fa-chevron-left"></i> python i/o
+              <a href="/blog/2018/07/05/rest-framework-jwt/" rel="next" title="rest framework jwt">
+                <i class="fa fa-chevron-left"></i> rest framework jwt
               </a>
             
           </div>
@@ -475,10 +372,6 @@ class MyVerifySerializer(VerifyJSONWebTokenSerializer):
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/2018/07/07/关于加班/" rel="prev" title="关于加班">
-                关于加班 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
